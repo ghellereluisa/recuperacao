@@ -1,7 +1,10 @@
 package com.recuperacao.backend.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 
 @Entity
@@ -23,15 +26,19 @@ public class Livro implements Serializable {
     @JoinColumn(name = "id_editora")
     private Editora editora;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "livro", cascade = CascadeType.ALL)
+    private List<Emprestimo> emprestimo_livro;
 
     public Livro() {
     }
 
-    public Livro(Long idLivro, String nomeLivro, Autor autor, Editora editora) {
+    public Livro(Long idLivro, String nomeLivro, Autor autor, Editora editora, List<Emprestimo> emprestimo_livro) {
         this.idLivro = idLivro;
         this.nomeLivro = nomeLivro;
         this.autor = autor;
         this.editora = editora;
+        this.emprestimo_livro = emprestimo_livro;
     }
 
     public Long getIdLivro() {
@@ -64,5 +71,13 @@ public class Livro implements Serializable {
 
     public void setEditora(Editora editora) {
         this.editora = editora;
+    }
+
+    public List<Emprestimo> getEmprestimo_livro() {
+        return emprestimo_livro;
+    }
+
+    public void setEmprestimo_livro(List<Emprestimo> emprestimo_livro) {
+        this.emprestimo_livro = emprestimo_livro;
     }
 }

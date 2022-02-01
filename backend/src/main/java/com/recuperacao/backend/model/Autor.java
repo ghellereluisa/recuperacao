@@ -1,8 +1,12 @@
 package com.recuperacao.backend.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -14,6 +18,11 @@ public class Autor implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idAutor;
     private String nomeAutor;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "autor", cascade = CascadeType.ALL)
+    private List<Livro> livro_autor = new ArrayList<>();
+
 
     public Autor(){
     }
@@ -37,5 +46,9 @@ public class Autor implements Serializable {
 
     public void setNomeAutor(String nomeAutor) {
         this.nomeAutor = nomeAutor;
+    }
+
+    public List<Livro> getLivro_autor() {
+        return livro_autor;
     }
 }

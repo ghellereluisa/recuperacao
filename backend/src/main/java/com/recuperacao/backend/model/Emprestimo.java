@@ -22,6 +22,10 @@ public class Emprestimo implements Serializable {
     @JoinColumn(name = "id_usuario")
     private Usuario usuario;
 
+    @ManyToOne
+    @JoinColumn(name = "id_livro")
+    private Livro livro;
+
     public Emprestimo() {
     }
 
