@@ -1,6 +1,5 @@
 package com.recuperacao.backend.Model;
 
-
 import javax.persistence.*;
 import java.io.Serializable;
 

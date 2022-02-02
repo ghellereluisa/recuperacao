@@ -12,7 +12,6 @@ public class Exemplar implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idExemplar;
-    private Boolean emprestado;
 
 
     @ManyToOne
@@ -30,9 +29,8 @@ public class Exemplar implements Serializable {
     public Exemplar() {
     }
 
-    public Exemplar(Long idExemplar, Boolean emprestado, Livro livro, Emprestimo emprestimo, Usuario usuario) {
+    public Exemplar(Long idExemplar, Livro livro, Emprestimo emprestimo, Usuario usuario) {
         this.idExemplar = idExemplar;
-        this.emprestado = emprestado;
         this.livro = livro;
         this.emprestimo = emprestimo;
         this.usuario = usuario;
@@ -44,14 +42,6 @@ public class Exemplar implements Serializable {
 
     public void setIdExemplar(Long idExemplar) {
         this.idExemplar = idExemplar;
-    }
-
-    public Boolean getEmprestado() {
-        return emprestado;
-    }
-
-    public void setEmprestado(Boolean emprestado) {
-        this.emprestado = emprestado;
     }
 
     public Livro getLivro() {

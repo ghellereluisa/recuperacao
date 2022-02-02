@@ -13,9 +13,10 @@ public class Emprestimo implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idEmprestimo;
 
+    private Boolean emprestado;
 
     private LocalDate dataEmprestimo;
-    private LocalDate dataFinal;
+
     private LocalDate dataDevolcao;
 
     @ManyToOne
@@ -33,10 +34,10 @@ public class Emprestimo implements Serializable {
     public Emprestimo() {
     }
 
-    public Emprestimo(Long idEmprestimo, LocalDate dataEmprestimo, LocalDate dataFinal, LocalDate dataDevolcao, Usuario usuario, Livro livro, Exemplar exemplar) {
+    public Emprestimo(Long idEmprestimo, Boolean emprestado, LocalDate dataEmprestimo, LocalDate dataDevolcao, Usuario usuario, Livro livro, Exemplar exemplar) {
         this.idEmprestimo = idEmprestimo;
+        this.emprestado = emprestado;
         this.dataEmprestimo = dataEmprestimo;
-        this.dataFinal = dataFinal;
         this.dataDevolcao = dataDevolcao;
         this.usuario = usuario;
         this.livro = livro;
@@ -51,20 +52,20 @@ public class Emprestimo implements Serializable {
         this.idEmprestimo = idEmprestimo;
     }
 
+    public Boolean getEmprestado() {
+        return emprestado;
+    }
+
+    public void setEmprestado(Boolean emprestado) {
+        this.emprestado = emprestado;
+    }
+
     public LocalDate getDataEmprestimo() {
         return dataEmprestimo;
     }
 
     public void setDataEmprestimo(LocalDate dataEmprestimo) {
         this.dataEmprestimo = dataEmprestimo;
-    }
-
-    public LocalDate getDataFinal() {
-        return dataFinal;
-    }
-
-    public void setDataFinal(LocalDate dataFinal) {
-        this.dataFinal = dataFinal;
     }
 
     public LocalDate getDataDevolcao() {

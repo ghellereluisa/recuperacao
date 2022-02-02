@@ -6,7 +6,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "categoria")
@@ -19,18 +21,18 @@ public class Categoria implements Serializable {
     private String nomeCategoria;
     private int prazoCategoria;
 
-    @JsonIgnore
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<Livro> livro_categoria = new ArrayList<>();
+
+    @ManyToMany(mappedBy = "categoriaLivros")
+    private Set<Livro> livroCategoria = new HashSet<>();
 
     public Categoria() {
     }
 
-    public Categoria(Long idCategoria, String nomeCategoria, int prazoCategoria, List<Livro> livro_categoria) {
+    public Categoria(Long idCategoria, String nomeCategoria, int prazoCategoria, Set<Livro> livroCategoria) {
         this.idCategoria = idCategoria;
         this.nomeCategoria = nomeCategoria;
         this.prazoCategoria = prazoCategoria;
-        this.livro_categoria = livro_categoria;
+        this.livroCategoria = livroCategoria;
     }
 
     public Long getIdCategoria() {
@@ -57,11 +59,11 @@ public class Categoria implements Serializable {
         this.prazoCategoria = prazoCategoria;
     }
 
-    public List<Livro> getLivro_categoria() {
-        return livro_categoria;
+    public Set<Livro> getLivroCategoria() {
+        return livroCategoria;
     }
 
-    public void setLivro_categoria(List<Livro> livro_categoria) {
-        this.livro_categoria = livro_categoria;
+    public void setLivroCategoria(Set<Livro> livroCategoria) {
+        this.livroCategoria = livroCategoria;
     }
 }

@@ -5,7 +5,7 @@ import com.recuperacao.backend.Model.Categoria;
 public class CategoriaCreator {
 
     public static Categoria categoriaCreate(){
-        Categoria categoria = new Categoria(1L, "testeCategoria");
+        Categoria categoria = new Categoria(1L, "testeCategoria",3);
         return categoria;
     }
 }

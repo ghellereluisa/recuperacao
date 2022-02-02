@@ -1,7 +1,5 @@
 package com.recuperacao.backend.Model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -27,18 +25,6 @@ public class Livro implements Serializable {
     @JoinColumn(name = "id_editora")
     private Editora editora;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "livro", cascade = CascadeType.ALL)
-    private List<Emprestimo> emprestimo_livro;
-
-    @ManyToOne
-    @JoinColumn(name= "id_emprestimo")
-    private Emprestimo emprestimo;
-
-
-    @ManyToOne
-    @JoinColumn(name = "id_Exemplar")
-    private Exemplar exemplar;
 
     @ManyToMany
     @JoinTable(name = "livros_categoria", joinColumns = @JoinColumn(name = "categoria_id"), inverseJoinColumns = @JoinColumn(name = "livro_id"))
@@ -53,9 +39,6 @@ public class Livro implements Serializable {
         this.nomeLivro = nomeLivro;
         this.autor = autor;
         this.editora = editora;
-        this.emprestimo_livro = emprestimo_livro;
-        this.emprestimo = emprestimo;
-        this.exemplar = exemplar;
         this.categoriaLivros = categoriaLivros;
     }
 
@@ -91,29 +74,6 @@ public class Livro implements Serializable {
         this.editora = editora;
     }
 
-    public List<Emprestimo> getEmprestimo_livro() {
-        return emprestimo_livro;
-    }
-
-    public void setEmprestimo_livro(List<Emprestimo> emprestimo_livro) {
-        this.emprestimo_livro = emprestimo_livro;
-    }
-
-    public Emprestimo getEmprestimo() {
-        return emprestimo;
-    }
-
-    public void setEmprestimo(Emprestimo emprestimo) {
-        this.emprestimo = emprestimo;
-    }
-
-    public Exemplar getExemplar() {
-        return exemplar;
-    }
-
-    public void setExemplar(Exemplar exemplar) {
-        this.exemplar = exemplar;
-    }
 
     public List<Livro> getCategoriaLivros() {
         return categoriaLivros;
