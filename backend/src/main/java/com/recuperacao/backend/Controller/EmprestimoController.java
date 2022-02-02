@@ -1,7 +1,7 @@
 package com.recuperacao.backend.Controller;
 
 import com.recuperacao.backend.Service.EmprestimoService;
-import com.recuperacao.backend.model.Emprestimo;
+import com.recuperacao.backend.Model.Emprestimo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

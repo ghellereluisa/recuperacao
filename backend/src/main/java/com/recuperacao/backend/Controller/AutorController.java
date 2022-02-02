@@ -1,7 +1,7 @@
 package com.recuperacao.backend.Controller;
 
 import com.recuperacao.backend.Service.AutorService;
-import com.recuperacao.backend.model.Autor;
+import com.recuperacao.backend.Model.Autor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

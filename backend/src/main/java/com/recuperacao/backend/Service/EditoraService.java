@@ -1,7 +1,7 @@
 package com.recuperacao.backend.Service;
 
 import com.recuperacao.backend.Repository.EditoraRepository;
-import com.recuperacao.backend.model.Editora;
+import com.recuperacao.backend.Model.Editora;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

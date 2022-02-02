@@ -2,8 +2,7 @@ package com.recuperacao.backend.Service;
 
 
 import com.recuperacao.backend.Repository.LivroRepository;
-import com.recuperacao.backend.model.Exemplar;
-import com.recuperacao.backend.model.Livro;
+import com.recuperacao.backend.Model.Livro;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

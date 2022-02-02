@@ -1,7 +1,7 @@
 package com.recuperacao.backend.Service;
 
 import com.recuperacao.backend.Repository.AutorRepository;
-import com.recuperacao.backend.model.Autor;
+import com.recuperacao.backend.Model.Autor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

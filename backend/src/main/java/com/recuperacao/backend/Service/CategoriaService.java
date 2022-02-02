@@ -1,7 +1,7 @@
 package com.recuperacao.backend.Service;
 
 import com.recuperacao.backend.Repository.CategoriaRepository;
-import com.recuperacao.backend.model.Categoria;
+import com.recuperacao.backend.Model.Categoria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

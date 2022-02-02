@@ -2,7 +2,7 @@ package com.recuperacao.backend.Service;
 
 
 import com.recuperacao.backend.Repository.UsuarioRepository;
-import com.recuperacao.backend.model.Usuario;
+import com.recuperacao.backend.Model.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

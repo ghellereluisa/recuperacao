@@ -1,7 +1,7 @@
 package com.recuperacao.backend.Controller;
 
 import com.recuperacao.backend.Service.CategoriaService;
-import com.recuperacao.backend.model.Categoria;
+import com.recuperacao.backend.Model.Categoria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

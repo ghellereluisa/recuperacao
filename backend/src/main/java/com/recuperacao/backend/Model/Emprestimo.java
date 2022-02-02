@@ -1,4 +1,4 @@
-package com.recuperacao.backend.model;
+package com.recuperacao.backend.Model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
