@@ -19,7 +19,7 @@ public class CategoriaService {
     }
 
     public Categoria listCatId(Long idCategoria){
-        Optional<Categoria> idReturn = categoriaRepository.findById(idCategoria)
+        Optional<Categoria> idReturn = categoriaRepository.findById(idCategoria);
         return idReturn.get();
     }
 
