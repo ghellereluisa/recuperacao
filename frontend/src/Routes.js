@@ -1,15 +1,19 @@
-import { Switch, Route, Redirect } from "react-router-dom";
+import Home from './Paginas/Home';
+import Emprestimos from './Paginas/Emprestimos';
+import Usuarios from './Paginas/Usuarios';
+import CriaLivro from './Paginas/CriaLivro';
 
-function Routes() {
-  return (
-    <Switch>
-      <Route path="/" component={Home} exact />
-      <CustomRoute isPrivate path="/livros" component={livros} />
-      <CustomRoute isPrivate path="/editora" component={editora} />
-      <Route path="/categoria" component={categoria} />
-      <Route path="/exemplar" component={exemplar} />
-    </Switch>
-  );
+import {Routes, Route} from 'react-router-dom';
+
+function Rotas() {
+    return (
+        <Routes>
+            <Route path="/" element={<Home />} exact />
+            <Route path="/emprestimos" element={<Emprestimos />} />
+            <Route path="/usuarios" element={<Usuarios />} />
+            <Route path="/cria-livro" element={<CriaLivro />} />
+        </Routes>
+    )
 }
 
-export default Routes;
+export default Rotas;
