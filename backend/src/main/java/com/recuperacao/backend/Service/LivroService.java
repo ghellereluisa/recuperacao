@@ -40,7 +40,6 @@ public class LivroService {
 
     private void UpdateInfo(Livro livEnt, Livro idReturn){
         livEnt.setAutor(idReturn.getAutor());
-        livEnt.setCategoriaLivros(idReturn.getCategoriaLivros());
         livEnt.setEditora(idReturn.getEditora());
         livEnt.setNomeLivro(idReturn.getNomeLivro());
     }

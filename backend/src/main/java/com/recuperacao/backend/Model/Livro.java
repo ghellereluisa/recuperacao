@@ -2,7 +2,9 @@ package com.recuperacao.backend.Model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 @Entity
@@ -28,18 +30,18 @@ public class Livro implements Serializable {
 
     @ManyToMany
     @JoinTable(name = "livros_categoria", joinColumns = @JoinColumn(name = "categoria_id"), inverseJoinColumns = @JoinColumn(name = "livro_id"))
-    private List<Livro> categoriaLivros;
+    private Set<Livro> categoriaLivro = new HashSet<>();
 
 
     public Livro() {
     }
 
-    public Livro(Long idLivro, String nomeLivro, Autor autor, Editora editora, List<Emprestimo> emprestimo_livro, Emprestimo emprestimo, Exemplar exemplar, List<Livro> categoriaLivros) {
+    public Livro(Long idLivro, String nomeLivro, Autor autor, Editora editora, Set<Livro> categoriaLivro) {
         this.idLivro = idLivro;
         this.nomeLivro = nomeLivro;
         this.autor = autor;
         this.editora = editora;
-        this.categoriaLivros = categoriaLivros;
+        this.categoriaLivro = categoriaLivro;
     }
 
     public Long getIdLivro() {
@@ -74,12 +76,7 @@ public class Livro implements Serializable {
         this.editora = editora;
     }
 
-
-    public List<Livro> getCategoriaLivros() {
-        return categoriaLivros;
-    }
-
-    public void setCategoriaLivros(List<Livro> categoriaLivros) {
-        this.categoriaLivros = categoriaLivros;
+    public void setCategoriaLivro(Set<Livro> categoriaLivro) {
+        this.categoriaLivro = categoriaLivro;
     }
 }

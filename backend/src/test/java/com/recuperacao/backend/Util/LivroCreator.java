@@ -3,6 +3,7 @@ package com.recuperacao.backend.Util;
 import com.recuperacao.backend.Model.Livro;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 public class LivroCreator {
@@ -10,7 +11,7 @@ public class LivroCreator {
     public static List<Livro> livroCreate(){
         List<Livro> praSalvarLivros = new ArrayList<>();
 
-        Livro livroTeste1 = new Livro(1L,"test1",AutorCreator.autorCreate(), EditoraCreator.editoraCreate());
+        Livro livroTeste1 = new Livro(1L, "Cidade dos Ossos", unidadeLivro().getAutor(), unidadeLivro().getEditora(),  new HashSet<>());
 
         praSalvarLivros.add(livroTeste1);
 
@@ -19,7 +20,7 @@ public class LivroCreator {
     }
 
     public static Livro unidadeLivro(){
-        Livro livro = new Livro(1L,"test1", 4, CategoriaCreator.categoriaCreate(),AutorCreator.autorCreate(), EditoraCreator.editoraCreate());
+        Livro livro = new Livro(1L, "Cidade dos Ossos", unidadeLivro().getAutor(), unidadeLivro().getEditora(), new HashSet<>());
         return livro;
     }
 
