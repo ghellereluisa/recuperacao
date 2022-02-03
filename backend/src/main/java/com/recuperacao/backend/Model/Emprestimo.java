@@ -23,25 +23,21 @@ public class Emprestimo implements Serializable {
     @JoinColumn(name = "id_usuario")
     private Usuario usuario;
 
-    @ManyToOne
-    @JoinColumn(name = "id_livro")
-    private Livro livro;
 
-    @OneToOne
-    @JoinColumn(name = "id_exemplar")
-    private Exemplar exemplar;
+    @ManyToOne
+    @JoinColumn(name = "emprestimo_exemplar")
+    private Exemplar emprestimo_exemplar;
 
     public Emprestimo() {
     }
 
-    public Emprestimo(Long idEmprestimo, Boolean emprestado, LocalDate dataEmprestimo, LocalDate dataDevolcao, Usuario usuario, Livro livro, Exemplar exemplar) {
+    public Emprestimo(Long idEmprestimo, Boolean emprestado, LocalDate dataEmprestimo, LocalDate dataDevolcao, Usuario usuario, Exemplar emprestimo_exemplar) {
         this.idEmprestimo = idEmprestimo;
         this.emprestado = emprestado;
         this.dataEmprestimo = dataEmprestimo;
         this.dataDevolcao = dataDevolcao;
         this.usuario = usuario;
-        this.livro = livro;
-        this.exemplar = exemplar;
+        this.emprestimo_exemplar = emprestimo_exemplar;
     }
 
     public Long getIdEmprestimo() {
@@ -84,19 +80,12 @@ public class Emprestimo implements Serializable {
         this.usuario = usuario;
     }
 
-    public Livro getLivro() {
-        return livro;
+
+    public Exemplar getEmprestimo_exemplar() {
+        return emprestimo_exemplar;
     }
 
-    public void setLivro(Livro livro) {
-        this.livro = livro;
-    }
-
-    public Exemplar getExemplar() {
-        return exemplar;
-    }
-
-    public void setExemplar(Exemplar exemplar) {
-        this.exemplar = exemplar;
+    public void setEmprestimo_exemplar(Exemplar emprestimo_exemplar) {
+        this.emprestimo_exemplar = emprestimo_exemplar;
     }
 }

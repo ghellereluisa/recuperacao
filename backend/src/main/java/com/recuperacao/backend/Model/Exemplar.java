@@ -1,8 +1,12 @@
 package com.recuperacao.backend.Model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "exemplares")
@@ -18,22 +22,17 @@ public class Exemplar implements Serializable {
     @JoinColumn(name = "id_livro")
     private Livro livro;
 
-    @OneToOne
-    @JoinColumn(name = "id_emprestimo")
-    private Emprestimo emprestimo;
+    @JsonIgnore
+    @OneToMany(mappedBy = "emprestimo_exemplar", cascade = CascadeType.ALL)
+    private List<Emprestimo> lista_emprestimo = new ArrayList<>();
 
-    @OneToOne
-    @JoinColumn(name = "id_usuario")
-    private Usuario usuario;
 
     public Exemplar() {
     }
 
-    public Exemplar(Long idExemplar, Livro livro, Emprestimo emprestimo, Usuario usuario) {
+    public Exemplar(Long idExemplar, Livro livro) {
         this.idExemplar = idExemplar;
         this.livro = livro;
-        this.emprestimo = emprestimo;
-        this.usuario = usuario;
     }
 
     public Long getIdExemplar() {
@@ -52,19 +51,7 @@ public class Exemplar implements Serializable {
         this.livro = livro;
     }
 
-    public Emprestimo getEmprestimo() {
-        return emprestimo;
-    }
-
-    public void setEmprestimo(Emprestimo emprestimo) {
-        this.emprestimo = emprestimo;
-    }
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public List<Emprestimo> getLista_emprestimo() {
+        return lista_emprestimo;
     }
 }

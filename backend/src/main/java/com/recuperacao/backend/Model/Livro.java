@@ -1,5 +1,7 @@
 package com.recuperacao.backend.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
@@ -27,21 +29,19 @@ public class Livro implements Serializable {
     @JoinColumn(name = "id_editora")
     private Editora editora;
 
-
-    @ManyToMany
-    @JoinTable(name = "livros_categoria", joinColumns = @JoinColumn(name = "categoria_id"), inverseJoinColumns = @JoinColumn(name = "livro_id"))
-    private Set<Livro> categoriaLivro = new HashSet<>();
-
+    @ManyToOne
+    @JoinColumn(name = "categoria_livro")
+    private Categoria categoria;
 
     public Livro() {
     }
 
-    public Livro(Long idLivro, String nomeLivro, Autor autor, Editora editora, Set<Livro> categoriaLivro) {
+    public Livro(Long idLivro, String nomeLivro, Autor autor, Editora editora, Categoria categoria) {
         this.idLivro = idLivro;
         this.nomeLivro = nomeLivro;
         this.autor = autor;
         this.editora = editora;
-        this.categoriaLivro = categoriaLivro;
+        this.categoria = categoria;
     }
 
     public Long getIdLivro() {
@@ -76,7 +76,11 @@ public class Livro implements Serializable {
         this.editora = editora;
     }
 
-    public void setCategoriaLivro(Set<Livro> categoriaLivro) {
-        this.categoriaLivro = categoriaLivro;
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 }

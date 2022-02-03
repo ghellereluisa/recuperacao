@@ -1,6 +1,5 @@
 package com.recuperacao.backend.Model;
 
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -22,17 +21,17 @@ public class Categoria implements Serializable {
     private int prazoCategoria;
 
 
-    @ManyToMany(mappedBy = "categoriaLivro")
-    private Set<Livro> livroCategoria = new HashSet<>();
+    @JsonIgnore
+    @OneToMany(mappedBy = "categoria")
+    private List<Livro> lista_livro = new ArrayList<>();
 
     public Categoria() {
     }
 
-    public Categoria(Long idCategoria, String nomeCategoria, int prazoCategoria, Set<Livro> livroCategoria) {
+    public Categoria(Long idCategoria, String nomeCategoria, int prazoCategoria) {
         this.idCategoria = idCategoria;
         this.nomeCategoria = nomeCategoria;
         this.prazoCategoria = prazoCategoria;
-        this.livroCategoria = livroCategoria;
     }
 
     public Long getIdCategoria() {
@@ -59,11 +58,8 @@ public class Categoria implements Serializable {
         this.prazoCategoria = prazoCategoria;
     }
 
-    public Set<Livro> getLivroCategoria() {
-        return livroCategoria;
+    public List<Livro> getLista_livro() {
+        return lista_livro;
     }
 
-    public void setLivroCategoria(Set<Livro> livroCategoria) {
-        this.livroCategoria = livroCategoria;
-    }
 }
