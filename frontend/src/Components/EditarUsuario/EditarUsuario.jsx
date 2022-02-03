@@ -1,9 +1,8 @@
-import api from '../api';
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from "react/cjs/react.development";
+import api from "../api";
 
 
-function CriarNovoUsuario() {
-    
+function EditarUsuario({id}) {
     const[nome, setNome] = useState("");
     const[rg, setRg] = useState("");
     const[cpf, setCpf] = useState("");
@@ -12,25 +11,26 @@ function CriarNovoUsuario() {
     const[enderecoCom, setEnderecoCom] = useState("");
     const[telefone, setTelefone] = useState("");
 
-    const Criar = useCallback(() => {
+
+    const Editar = useCallback(() => {
 
         const usuario = {
-           usuarioNome: nome,
-           rg: rg,
-           cpf: cpf,
-           email: email,
-           enderecoRes_url: `viacep.com.br/ws/${cep}/json/unicode/`,
-           enderecoCom_url: `viacep.com.br/ws/${cep}/json/unicode/`,
-           telelfone: telefone
+            usuarioNome: nome,
+            rg: rg,
+            cpf: cpf,
+            email: email,
+            enderecoRes_url: `viacep.com.br/ws/${cep}/json/unicode/`,
+            enderecoCom_url: `viacep.com.br/ws/${cep}/json/unicode/`,
+            telelfone: telefone
         }
 
-        api.post("/usuarios", usuario)
+        api.put(`/usuarios/${id}`, usuario)
     }, [nome, rg, cpf, email, enderecoRes_url, enderecoCom_url, telefone])
 
     return(
         <div>
-            <h3 className='color-muted-pink'>Criar Novo Usuario</h3>
-            <form className='' name='criar-novo-usuario' onSubmit={Criar}>
+            <h3 className='color-muted-pink'>Editar um suario</h3>
+            <form className='' Name='editar-usuario-form' onSubmit={Editar}>
                 <input placeholder='Digite seu Nome' type={'text'} onChange={(e) => setNome(e.target.value)}/>
                 <input placeholder='Digite seu Rg' type={'text'} onChange={(e) => setRg(e.target.value)}/>
                 <input placeholder='Digite seu Cpf' type={'text'} onChange={(e) => setCpf(e.target.value)}/>
@@ -44,4 +44,4 @@ function CriarNovoUsuario() {
     )
 }
 
-export default CriaNovoUsuario;
+export default EditarUsuario;

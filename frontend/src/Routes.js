@@ -1,6 +1,6 @@
-import Home from './Paginas/Home';
-import Emprestimos from './Paginas/Emprestimos';
-import Usuarios from './Paginas/Usuarios';
+import Index from './Paginas/Index';
+import Emprestimo from './Paginas/Emprestimo';
+import Usuario from './Paginas/Usuario';
 import CriaLivro from './Paginas/CriaLivro';
 
 import {Routes, Route} from 'react-router-dom';
@@ -8,9 +8,9 @@ import {Routes, Route} from 'react-router-dom';
 function Rotas() {
     return (
         <Routes>
-            <Route path="/" element={<Home />} exact />
-            <Route path="/emprestimos" element={<Emprestimos />} />
-            <Route path="/usuarios" element={<Usuarios />} />
+            <Route path="/" element={<Index />} exact />
+            <Route path="/emprestimos" element={<Emprestimo />} />
+            <Route path="/usuarios" element={<Usuario />} />
             <Route path="/cria-livro" element={<CriaLivro />} />
         </Routes>
     )

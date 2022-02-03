@@ -58,7 +58,7 @@ function CriarEmprestimo() {
                         <option key={usuario.idUsuario} value={usuario.idUsuario}>{usuario.nomeUsuario}</option>
                     ))}
                 </select>
-                <button type="submit">finalizar</button>
+                <button className='rounded-md, p-4rem, bg-primary-500 hover:bg-primary-600' type='submit'>concluir e terminar</button>
             </form>
         </div>
     )
