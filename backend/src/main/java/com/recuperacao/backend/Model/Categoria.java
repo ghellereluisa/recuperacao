@@ -22,7 +22,7 @@ public class Categoria implements Serializable {
     private int prazoCategoria;
 
 
-    @ManyToMany(mappedBy = "categoriaLivros")
+    @ManyToMany(mappedBy = "categoriaLivro")
     private Set<Livro> livroCategoria = new HashSet<>();
 
     public Categoria() {
