@@ -1,5 +1,5 @@
-import { useEffect, useState, useCallback } from "react/cjs/react.development";
-import api from "../api";
+import { useEffect, useState, useCallback } from "react";
+import api from '../../Service/api';
 
 
 function EditarUsuario({id}) {

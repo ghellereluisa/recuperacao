@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import NavBar from "../Components/NavBar";
-import api from '../api';
-import CriaUsuario from '../Components/CriaUsuario';
-import EditarUsuario from "../Components/EditarUsuario";
+import NavBar from '../Components/NavBar/NavBar';
+import api from '../Service/api';
+import CriaUsuario from '../Components/CriarUsuario/CriarUsuario';
+import EditarUsuario from "../Components/EditarUsuario/EditarUsuario";
 
 
 function Usuario() {
