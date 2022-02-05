@@ -9,13 +9,16 @@ function NavBar() {
                     <a className="block p-3" href="/livro">Livro</a>
                 </li>
                 <li>
-                    <a className="block p-3" href="#">Autor</a>
+                    <a className="block p-3" href="/autores">Autor</a>
                 </li>
                 <li>
                     <a className="block p-3" href="#">Emprestimo</a>
                 </li>
                 <li>
-                    <a className="block p-3" href="#">Editora</a>
+                    <a className="block p-3" href="/editora">Editora</a>
+                </li>
+                <li>
+                    <a className="block p-3" href="/exemplar">Exemplar</a>
                 </li>
             </ul>
         </nav>

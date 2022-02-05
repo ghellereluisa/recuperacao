@@ -3,26 +3,26 @@ import NavBar from '../Components/NavBar/NavBar';
 import api from '../Service/api';
 
 
-function Autores(){
+function Editora(){
 
-  const [nomeAutor, setNomeAutor] = useState('')
+  const [nomeEditora, setNomeEditora] = useState('')
 
 
   const handleSubmit = useCallback(async(event)=> {
-    await api.post('/autores', {
-        nomeAutor
+    await api.post('/editora', {
+        nomeEditora
     })
   event.preventDefault();
-  },[nomeAutor])
+  },[nomeEditora])
 
   return (
     <div>
         <NavBar/>
 
         <div className="mt-4 ml-6">
-            <h2> Cadastrar novo Autor</h2>
+            <h2> Cadastrar nova editora</h2>
             <form onSubmit={(event)=>handleSubmit(event)}>
-                <input className="ml-4" name='nomeAutor' placeholder='Nome do autor' onChange={event=> setNomeAutor(event.target.value)}/>
+                <input className="ml-4" name='nomeEditora' placeholder='Nome da editora' onChange={event=> setNomeEditora(event.target.value)}/>
 
                 <button className="ml-4" type='submit'>Finalizar</button>
             </form>
@@ -35,4 +35,4 @@ function Autores(){
 
 }
 
-export default Autores;
+export default Editora;

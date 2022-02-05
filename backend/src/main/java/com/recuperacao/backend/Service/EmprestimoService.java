@@ -1,12 +1,14 @@
 package com.recuperacao.backend.Service;
 
 
+import com.recuperacao.backend.Model.Livro;
 import com.recuperacao.backend.Repository.EmprestimoRepository;
 import com.recuperacao.backend.Repository.LivroRepository;
 import com.recuperacao.backend.Model.Emprestimo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,7 +33,10 @@ public class EmprestimoService {
         return idReturn.get();
     }
 
-    public Emprestimo cadEmprestimo(Emprestimo emprestimo){
+    public Emprestimo cadEmprestimo(Emprestimo emprestimo) {
+        Livro livro = livroRepository.getById(emprestimo.getEmprestimo_exemplar().getLivro().getIdLivro());
+        emprestimo.setDataEmprestimo(LocalDate.now());
+        emprestimo.setDataDevolcao(LocalDate.now().plusDays(livro.getCategoria().getPrazoCategoria()));
         return emprestimoRepository.save(emprestimo);
     }
 
