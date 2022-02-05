@@ -13,6 +13,9 @@ function NavBar() {
             <Link to="/usuario">
                 <button>Usuario</button>
             </Link>
+            <Link to="/exemplar">
+                <button>Exemplar</button>
+            </Link>
         </div>
     )
 }
