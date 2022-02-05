@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --color-primary: #58475c;
+  --color-darkPurple: #58475c;
   --color-secondary: #a37b9a;
   --color-tertiary: #d1b3c4;
   --color-muted-pink: #fcefed;
@@ -30,7 +30,7 @@ body,
 input,
 textarea,
 button {
-  font-family: "Nunito Sans", sans-serif;
+  font-family: Poppins, sans-serif;
   font-weight: 400;
 }
 

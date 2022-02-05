@@ -1,18 +1,18 @@
-import Index from './Pages/Index';
-import Emprestimo from './Pages/Emprestimos';
-import Usuario from './Pages/Usuario';
+import { Route, Routes } from "react-router-dom";
+import App from "./Pages/index";
+import Livro from "./Pages/Livro";
+import DetalheLivro from "./Pages/DetalheLivro";
 
-import {Routes, Route} from 'react-router-dom';
 
-function Routas() {
-    return (
+function RotasFuncionando(){
+    return(
         <Routes>
-            <Route path="/" element={<Index />} exact />
-            <Route path="/emprestimo" element={<Emprestimo />} />
-            <Route path="/usuario" element={<Usuario />} />
-
+            <Route path="/" element={<App/>} exact />
+            <Route path="/livro" element={<Livro/>} />
+            <Route path="/livro/:id" element={<DetalheLivro/>} />
         </Routes>
     )
 }
 
-export default Routas;
+
+export default RotasFuncionando;

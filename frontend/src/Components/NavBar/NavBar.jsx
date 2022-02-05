@@ -1,22 +1,24 @@
-import { Link } from 'react-router-dom';
+
 
 
 function NavBar() {
     return(
-        <div>
-            <Link to="/">
-                <button>Livro</button>
-            </Link>
-            <Link to="/emprestimo">
-                <button>Emprestimo</button>
-            </Link>
-            <Link to="/usuario">
-                <button>Usuario</button>
-            </Link>
-            <Link to="/exemplar">
-                <button>Exemplar</button>
-            </Link>
-        </div>
+        <nav className="fixed top-6 bottom-0 -right-full bg-primary w-52 md:w-auto md:static transition-all">
+            <ul className="md:flex">
+                <li>
+                    <a className="block p-3" href="/livro">Livro</a>
+                </li>
+                <li>
+                    <a className="block p-3" href="#">Autor</a>
+                </li>
+                <li>
+                    <a className="block p-3" href="#">Emprestimo</a>
+                </li>
+                <li>
+                    <a className="block p-3" href="#">Editora</a>
+                </li>
+            </ul>
+        </nav>
     )
 }
 

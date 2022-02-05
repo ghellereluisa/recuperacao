@@ -25,8 +25,8 @@ public class CategoriaController {
     }
 
     @GetMapping(value = "/{idCategoria}")
-    public ResponseEntity<Categoria> buscaCategoriaId(@PathVariable Long categoriasId) {
-        Categoria idReturn = categoriaService.listCatId(categoriasId);
+    public ResponseEntity<Categoria> buscaCategoriaId(@PathVariable Long idCategoria) {
+        Categoria idReturn = categoriaService.listCatId(idCategoria);
         return ResponseEntity.ok().body(idReturn);
     }
 
@@ -37,9 +37,9 @@ public class CategoriaController {
     }
 
     @PutMapping(value = "/{idCategoria}")
-    public ResponseEntity<Categoria> alteraCategoria(@RequestBody Categoria categorias, @PathVariable Long categoriasId) {
-        categorias = categoriaService.altCategoria(categoriasId, categorias);
-        return ResponseEntity.ok().body(categorias);
+    public ResponseEntity<Categoria> alteraCategoria(@RequestBody Categoria categoria, @PathVariable Long idCategoria) {
+        categoria = categoriaService.altCategoria(idCategoria, categoria);
+        return ResponseEntity.ok().body(categoria);
     }
 
     @DeleteMapping(value = "/{idCategoria}")

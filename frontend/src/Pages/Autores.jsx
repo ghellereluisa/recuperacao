@@ -2,47 +2,10 @@ import { useCallback, useEffect, useState } from 'react';
 import NavBar from '../Components/NavBar/NavBar';
 import api from '../Service/api';
 
+function Autores(){
 
 
-function Livro() {
-
-    const [nomeLivro, setNomeLivro] = useState('')
-    const [categoriaEscolhida, setCategoriaEscolhida] = useState()
-    const [categorias, setCategorias] = useState([])
-    const [editoraEscolhida, setEditoraEscolhida] = useState()
-    const [editoras, setEditoras] = useState([])
-    const [autorEscolhido, setAutorEscolhido] = useState()
-    const [autores, setAutores] = useState([])
-
-    const handleSubmit = useCallback(async(event)=> {
-        await api.post('/livro', {
-            nomeLivro,
-            autor: autores.find(autor => autor.idAutor === Number(autorEscolhido)),
-            editora: editoras.find(editora=> editora.idEditora === Number(editoraEscolhida)),
-            categoria: categorias.find(categoria=> categoria.idCategoria === Number(categoriaEscolhida)),
-        })
-
-        console.log('Thats ok!')
-
-        event.preventDefault();
-    },[nomeLivro, categoriaEscolhida, editoraEscolhida, autorEscolhido])
-
-    const handleGetData = useCallback(async()=>{
-        const { data:categoriaData } = await api.get('/categoria')
-        const { data:editoraData } = await api.get('/editora')
-        const { data:autorData }=await api.get('/autores')
-
-
-        setCategorias(categoriaData)
-        setEditoras(editoraData)
-        setAutores(autorData)
-    },[])
-
-    useEffect(()=>{
-        handleGetData()
-    },[handleGetData])
-
- 
+    
   return (
     <div>
         <NavBar/>
@@ -77,9 +40,27 @@ function Livro() {
                 <button className="ml-4" type='submit'>Finalizar</button>
             </form>
         </div>
+
+
+        <div className="mt-4 ml-6">
+            <h2> Consultar Livro</h2>
+
+        </div>
+
+        
+        <div className="mt-4 ml-6">
+            <h2> Editar um Livro</h2>
+
+        </div>
+
+        <div className="mt-4 ml-6">
+            <h2> Deletar um Livro</h2>
+
+        </div>
    </div>
    
   )
 }
 
-export default Livro;
+
+export default Autores;
